@@ -39,7 +39,7 @@ MinimaImpositionImageFilter requires an input image, and a marker image which de
 filter->SetInput( reader->GetOutput() );
 filter->SetMarkerImage( reader2->GetOutput() );
 \end{lstlisting}
-During the minima imposition, the image is shifted by 1 by default to avoid having to markers in the same minima. However, the default value may not be relevant in some cases and can therefore be modified with the SetShift() method.
+During the minima imposition, the image is shifted by 1 by default to avoid having to markers in the same minima. However, the default value may not be relevant in some cases and can thus be modified with the SetShift() method.
 \begin{lstlisting}
 filter->SetShift( 1 );
 \end{lstlisting}
