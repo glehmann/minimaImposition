@@ -27,8 +27,8 @@ namespace itk {
  * TLabelImage should be an integer type. All non zero pixels of the image are
  * considered as markers.
  *
- * The morphological watershed transform algorithm is described in
- * Chapter 9.2 of Pierre Soille's book "Morphological Image Analysis:
+ * The minima imposition algorithm is described in
+ * Chapter 6.3.6 of Pierre Soille's book "Morphological Image Analysis:
  * Principles and Applications", Second Edition, Springer, 2003.
  *
  * \author Gaëtan Lehmann. Biologie du Développement et de la Reproduction, INRA de Jouy-en-Josas, France.
