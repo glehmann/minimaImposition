@@ -45,9 +45,11 @@ MinimaImpositionImageFilter<TInputImage, TLabelImage>
   
   // We need all the input.
   InputImagePointer input = const_cast<InputImageType *>(this->GetInput());
-  input->SetRequestedRegion( input->GetLargestPossibleRegion() );
-
   LabelImagePointer label = this->GetMarkerImage();
+
+  if ( !input || !label)
+    { return; }
+  input->SetRequestedRegion( input->GetLargestPossibleRegion() );
   label->SetRequestedRegion( label->GetLargestPossibleRegion() );
 }
 
