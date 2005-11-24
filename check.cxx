@@ -2,7 +2,7 @@
 #include "itkImageFileWriter.h"
 #include "itkCommand.h"
 
-#include "itkImageFilter.h"
+#include "itkMinimaImpositionImageFilter.h"
 
 template < class TFilter >
 class ProgressCallback : public itk::Command
@@ -54,9 +54,15 @@ int main(int, char * argv[])
   ReaderType::Pointer reader = ReaderType::New();
   reader->SetFileName( argv[1] );
 
-  typedef itk::ImageFilter< IType, IType > FilterType;
+  ReaderType::Pointer reader2 = ReaderType::New();
+  reader2->SetFileName( argv[2] );
+
+  typedef itk::MinimaImpositionImageFilter< IType, IType > FilterType;
   FilterType::Pointer filter = FilterType::New();
   filter->SetInput( reader->GetOutput() );
+  filter->SetMarkerImage( reader2->GetOutput() );
+  filter->SetShift( 1 );
+  filter->SetFullyConnected( true );
 
   typedef ProgressCallback< FilterType > ProgressType;
   ProgressType::Pointer progress = ProgressType::New();
@@ -65,7 +71,7 @@ int main(int, char * argv[])
   typedef itk::ImageFileWriter< IType > WriterType;
   WriterType::Pointer writer = WriterType::New();
   writer->SetInput( filter->GetOutput() );
-  writer->SetFileName( argv[2] );
+  writer->SetFileName( argv[3] );
   writer->Update();
 
   return 0;

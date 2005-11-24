@@ -1,8 +1,7 @@
 #Change PROJECT_NAME to the name of your project
-PROJECT()
+SET(PROJECT_NAME "minimaImposition")
 
-# set the name of the input image used to run the test
-SET(INPUT_IMAGE "")
+PROJECT(${PROJECT_NAME})
 
 #include some macros from another file...
 INCLUDE(IJMacros.txt)
@@ -49,5 +48,5 @@ TARGET_LINK_LIBRARIES(check ${Libraries})
 #any tests you can comment out or delete the following line.
 # ADD_TEST(Testname ExecutableToRun arg1 arg2 arg3)
 
-ADD_TEST(Run check ${CMAKE_SOURCE_DIR}/${INPUT_IMAGE} out.png)
-ADD_TEST(CompareImage ImageCompare out.png ${CMAKE_SOURCE_DIR}/test.png)
+ADD_TEST(${PROJECT_NAME} check ${CMAKE_SOURCE_DIR}/cthead1.png ${CMAKE_SOURCE_DIR}/marker.png out.png)
+ADD_TEST(${PROJECT_NAME}Compare ImageCompare out.png ${CMAKE_SOURCE_DIR}/test.png)
