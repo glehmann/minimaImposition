@@ -1,8 +1,18 @@
 #Change PROJECT_NAME to the name of your project
 SET(PROJECT_NAME "minimaImposition")
 
+v v v v v v v
+# required to avoid warnings while running cmake
+CMAKE_MINIMUM_REQUIRED(VERSION 2.4.2)
+
+# cpack stuff
+INCLUDE(CPack)
+
 # set the name of the input image used to run the test
 SET(INPUT_IMAGE "")
+*************
+PROJECT(${PROJECT_NAME})
+^ ^ ^ ^ ^ ^ ^
 
 #include some macros from another file...
 INCLUDE(IJMacros.txt)
