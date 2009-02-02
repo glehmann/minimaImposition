@@ -1,7 +1,8 @@
 #Change PROJECT_NAME to the name of your project
 SET(PROJECT_NAME "minimaImposition")
 
-PROJECT(${PROJECT_NAME})
+# set the name of the input image used to run the test
+SET(INPUT_IMAGE "")
 
 #include some macros from another file...
 INCLUDE(IJMacros.txt)
