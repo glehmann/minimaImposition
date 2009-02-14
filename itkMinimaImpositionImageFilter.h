@@ -44,21 +44,21 @@ public:
   /** Standard class typedefs. */
   typedef MinimaImpositionImageFilter Self;
   typedef ImageToImageFilter<TInputImage, TLabelImage>
-  Superclass;
-  typedef SmartPointer<Self>        Pointer;
-  typedef SmartPointer<const Self>  ConstPointer;
+                                      Superclass;
+  typedef SmartPointer<Self>          Pointer;
+  typedef SmartPointer<const Self>    ConstPointer;
 
   /** Some convenient typedefs. */
-  typedef TInputImage InputImageType;
-  typedef TLabelImage LabelImageType;
+  typedef TInputImage                              InputImageType;
+  typedef TLabelImage                              LabelImageType;
   typedef typename InputImageType::Pointer         InputImagePointer;
   typedef typename InputImageType::ConstPointer    InputImageConstPointer;
   typedef typename InputImageType::RegionType      InputImageRegionType;
   typedef typename InputImageType::PixelType       InputPixelType;
-  typedef typename LabelImageType::Pointer        LabelImagePointer;
-  typedef typename LabelImageType::ConstPointer   LabelImageConstPointer;
-  typedef typename LabelImageType::RegionType     LabelImageRegionType;
-  typedef typename LabelImageType::PixelType      LabelPixelType;
+  typedef typename LabelImageType::Pointer         LabelImagePointer;
+  typedef typename LabelImageType::ConstPointer    LabelImageConstPointer;
+  typedef typename LabelImageType::RegionType      LabelImageRegionType;
+  typedef typename LabelImageType::PixelType       LabelPixelType;
   
   /** ImageDimension constants */
   itkStaticConstMacro(InputImageDimension, unsigned int,
@@ -94,10 +94,10 @@ public:
   
    /** Set the marker image */
   void SetMarkerImage(TLabelImage *input)
-     {
-     // Process object is not const-correct so the const casting is required.
-     this->SetNthInput(1, const_cast<TLabelImage *>(input) );
-     }
+    {
+    // Process object is not const-correct so the const casting is required.
+    this->SetNthInput(1, const_cast<TLabelImage *>(input) );
+    }
 
   /** Get the marker image */
   LabelImageType * GetMarkerImage()
@@ -113,7 +113,7 @@ protected:
   /** MinimaImpositionImageFilter needs the entire input be
    * available. Thus, it needs to provide an implementation of
    * GenerateInputRequestedRegion(). */
-  void GenerateInputRequestedRegion() ;
+  void GenerateInputRequestedRegion();
 
   /** MinimaImpositionImageFilter will produce the entire output. */
   void EnlargeOutputRequestedRegion(DataObject *itkNotUsed(output));
@@ -131,7 +131,7 @@ private:
 
   InputPixelType m_Shift;
 
-} ; // end of class
+}; // end of class
 
 } // end namespace itk
   
@@ -140,5 +140,3 @@ private:
 #endif
 
 #endif
-
-
