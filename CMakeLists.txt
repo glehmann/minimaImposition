@@ -34,9 +34,7 @@ ENDFOREACH(Package)
 #Set any libraries that your project depends on.
 #examples: ITKCommon, VTKRendering, etc
 SET(Libraries
-  ITKCommon
-  ITKBasicFilters
-  ITKIO
+  ${ITK_LIBRARIES}
 )
 
 OPTION(BUILD_WRAPPERS "Wrap library" OFF)
